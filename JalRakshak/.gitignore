@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+*.egg-info/
+dist/
+build/
+
+# Flask
+instance/
+.webassets-cache
+flask_session/
+
+# Environment variables (NEVER commit API keys)
+.env
+.env.local
+.env.production
+*.env
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node (if added later)
+node_modules/
+npm-debug.log
+
+# Logs
+*.log
+logs/
+
+# ZIP files
+*.zip
