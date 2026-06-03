@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JalRakshak — Smart Irrigation Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/main.css" />
+</head>
+<body>
+
+<!-- Grain Overlay -->
+<div class="grain-overlay"></div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-logo"><span class="logo-icon">💧</span> JALRAKSHAK</div>
+  <ul class="nav-links">
+    <li><a href="#plant">Plant AI</a></li>
+    <li><a href="#satellite">Satellite</a></li>
+    <li><a href="#rainmap">Rain Map</a></li>
+    <li><a href="#voice">Voice</a></li>
+    <li><a href="#root">Root Scan</a></li>
+    <li><a href="#twin">Digital Twin</a></li>
+    <li><a href="#tractor">Tractor IQ</a></li>
+    <li><a href="#transpiration">Transpiration</a></li>
+  </ul>
+  <div class="nav-status"><div class="status-dot"></div> LIVE</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-content">
+    <div class="hero-badge">WEBNOVA 2025 · IMS ENGINEERING COLLEGE</div>
+    <h1 class="hero-title">
+      <span class="line1">JAL</span>
+      <span class="line2">RAKSHAK</span>
+      <span class="line3">AI</span>
+    </h1>
+    <p class="hero-sub">8 breakthrough AI modules for precision irrigation. From plant emotion detection to satellite radar — built for Indian farmers.</p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">8</span><span class="stat-label">AI MODULES</span></div>
+      <div class="stat"><span class="stat-num">₹1.1L</span><span class="stat-label">SAVINGS/FARM</span></div>
+      <div class="stat"><span class="stat-num">~88%</span><span class="stat-label">ACCURACY</span></div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+    <div class="pulse-ring"></div>
+    <div class="center-icon">🌿</div>
+  </div>
+</section>
+
+<!-- MODULE 1: PLANT VISION AI -->
+<section class="module-section mod-1" id="plant">
+  <div class="section-tag">MODULE 01</div>
+  <div class="module-header">
+    <h2>🌿 Plant Emotion AI</h2>
+    <p class="module-desc">Upload a plant photo — Claude AI reads leaf color, wilting, and chlorophyll to detect water stress instantly.</p>
+  </div>
+  <div class="module-body two-col">
+    <div>
+      <div class="camera-feed" id="cameraFeed">
+        <div class="scan-line"></div>
+        <div class="feed-placeholder" id="feedPlaceholder">
+          <div class="feed-icon">📷</div>
+          <p>Upload plant image or use demo</p>
+          <button class="btn-secondary" onclick="document.getElementById('plantImageInput').click()">📁 Upload Image</button>
+          <input type="file" id="plantImageInput" class="hidden-input" accept="image/*" />
+        </div>
+        <img id="plantPreview" class="plant-preview hidden" alt="Plant preview" />
+      </div>
+      <button class="btn-analyze" id="analyzeBtn" onclick="analyzePlant()">⚡ ANALYZE PLANT STRESS</button>
+    </div>
+    <div>
+      <div class="result-card">
+        <div class="result-label">HYDRATION LEVEL</div>
+        <div class="result-bar"><div class="bar-fill" id="hydrationBar" style="width:0%"></div></div>
+        <div class="result-val" id="hydrationVal">—</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">WILTING INDEX</div>
+        <div class="result-bar"><div class="bar-fill warning" id="wiltBar" style="width:0%"></div></div>
+        <div class="result-val" id="wiltVal">—</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">CHLOROPHYLL</div>
+        <div class="result-bar"><div class="bar-fill success" id="chloroBar" style="width:0%"></div></div>
+        <div class="result-val" id="chloroVal">—</div>
+      </div>
+      <div class="result-card">
+        <div class="result-label">STRESS SCORE</div>
+        <div class="result-bar"><div class="bar-fill danger" id="stressBar" style="width:0%"></div></div>
+        <div class="result-val" id="stressVal">—</div>
+      </div>
+      <div class="irrigation-verdict" id="irrigationVerdict">
+        <span>💧</span>
+        <span id="verdictText">Run analysis to see irrigation recommendation</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 2: SATELLITE RADAR -->
+<section class="module-section mod-2" id="satellite">
+  <div class="section-tag">MODULE 02</div>
+  <div class="module-header">
+    <h2>🛰️ Satellite Radar</h2>
+    <p class="module-desc">No sensors needed. Enter your farm coordinates and get NDVI/NDWI satellite indices with AI irrigation advice.</p>
+  </div>
+  <div class="module-body two-col">
+    <div class="satellite-input">
+      <div class="input-group">
+        <label>LATITUDE</label>
+        <input type="number" id="satLat" value="18.52" step="0.01" placeholder="18.52" />
+      </div>
+      <div class="input-group">
+        <label>LONGITUDE</label>
+        <input type="number" id="satLng" value="73.85" step="0.01" placeholder="73.85" />
+      </div>
+      <div class="input-group">
+        <label>FARM AREA (hectares)</label>
+        <input type="number" id="farmArea" value="5" step="0.5" placeholder="5" />
+      </div>
+      <button class="btn-analyze" onclick="fetchSatelliteData()">🛰 FETCH SATELLITE DATA</button>
+      <div class="sat-indices">
+        <div class="index-card"><div class="index-name">NDVI</div><div class="index-val" id="ndviVal">—</div></div>
+        <div class="index-card"><div class="index-name">NDWI</div><div class="index-val" id="ndwiVal">—</div></div>
+        <div class="index-card"><div class="index-name">EVI</div><div class="index-val" id="eviVal">—</div></div>
+        <div class="index-card"><div class="index-name">SOIL TEMP</div><div class="index-val" id="tempVal">—</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="sat-map-placeholder">
+        <div class="sat-grid" id="satGrid"></div>
+        <div class="sat-legend">
+          <div class="legend-item dry">DRY</div>
+          <div class="legend-item moderate">MODERATE</div>
+          <div class="legend-item wet">WET</div>
+        </div>
+      </div>
+      <div class="sat-recommendation" id="satRec">Run satellite fetch to see AI recommendation</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 3: RAIN MAP -->
+<section class="module-section mod-3" id="rainmap">
+  <div class="section-tag">MODULE 03</div>
+  <div class="module-header">
+    <h2>🌧️ Rainwater Flow Mapper</h2>
+    <p class="module-desc">Simulate rain flow on your farm terrain. AI designs optimal water channels to save up to 35% water.</p>
+  </div>
+  <div class="module-body two-col">
+    <div>
+      <div class="rain-canvas-wrapper">
+        <canvas id="rainCanvas" width="500" height="300"></canvas>
+      </div>
+      <div class="rain-controls">
+        <button class="btn-primary" onclick="simulateRain()">🌧 Simulate Rain</button>
+        <button class="btn-secondary" onclick="generateChannels()">⚡ AI Channel Design</button>
+        <button class="btn-secondary" onclick="clearRainMap()">✕ Clear</button>
+      </div>
+    </div>
+    <div class="rain-instructions">
+      <h4>AI CHANNEL INSTRUCTIONS</h4>
+      <div id="channelInstructions">Click "Simulate Rain" to see water flow patterns, then "AI Channel Design" to get digging instructions.</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 4: VOICE CONTROL -->
+<section class="module-section mod-4" id="voice">
+  <div class="section-tag">MODULE 04</div>
+  <div class="module-header">
+    <h2>📡 Voice Control</h2>
+    <p class="module-desc">Control your farm in Hindi, Marathi, English or Hinglish. Works offline in villages with no internet.</p>
+  </div>
+  <div class="voice-body">
+    <div class="voice-orb" id="voiceOrb" onclick="toggleVoice()">
+      <div class="orb-ring r1"></div>
+      <div class="orb-ring r2"></div>
+      <div class="orb-ring r3"></div>
+      <div class="orb-center">🎤</div>
+    </div>
+    <div class="voice-status" id="voiceStatus">Tap mic to activate</div>
+    <div class="voice-transcript" id="voiceTranscript"></div>
+    <div class="voice-commands-grid">
+      <div class="cmd-chip" onclick="simulateCommand('पानी चालू करो')">पानी चालू करो</div>
+      <div class="cmd-chip" onclick="simulateCommand('मोटर बंद करो')">मोटर बंद करो</div>
+      <div class="cmd-chip" onclick="simulateCommand('कितनी नमी है')">कितनी नमी है?</div>
+      <div class="cmd-chip" onclick="simulateCommand('Start irrigation')">Start irrigation</div>
+      <div class="cmd-chip" onclick="simulateCommand('water status')">Water status</div>
+      <div class="cmd-chip" onclick="simulateCommand('पाणी सुरू करा')">पाणी सुरू करा</div>
+    </div>
+    <div class="voice-response" id="voiceResponse">Say a command or tap a chip above</div>
+  </div>
+</section>
+
+<!-- MODULE 5: ROOT SCAN -->
+<section class="module-section mod-5" id="root">
+  <div class="section-tag">MODULE 05</div>
+  <div class="module-header">
+    <h2>🪴 Root Moisture Scanner</h2>
+    <p class="module-desc">Ultrasonic simulation measuring actual root-zone moisture at 4 depths. Most systems only measure top 5cm.</p>
+  </div>
+  <div class="module-body two-col">
+    <div class="soil-cross-section">
+      <div class="soil-layer surface">0–5 cm &nbsp;&nbsp; <span id="d0">—</span></div>
+      <div class="soil-layer mid">5–15 cm &nbsp; <span id="d5">—</span></div>
+      <div class="soil-layer root-zone">15–40 cm ← ROOT ZONE &nbsp; <span id="d15">—</span></div>
+      <div class="soil-layer deep">40+ cm &nbsp;&nbsp; <span id="d40">—</span></div>
+      <div class="ultrasonic-probe">
+        <div class="probe-shaft" id="uProbe"></div>
+        <div class="probe-waves" id="probeWaves"></div>
+      </div>
+    </div>
+    <div class="root-data">
+      <button class="btn-analyze" onclick="runRootScan(event)">🔊 RUN ULTRASONIC SCAN</button>
+      <div class="depth-readings">
+        <div class="depth-row"><span>Surface (0–5cm)</span><span id="r0">Not scanned</span></div>
+        <div class="depth-row"><span>Mid (5–15cm)</span><span id="r5">Not scanned</span></div>
+        <div class="depth-row root-row"><span>Root Zone (15–40cm)</span><span id="r15">⬅ CRITICAL</span></div>
+        <div class="depth-row"><span>Deep (40cm+)</span><span id="r40">Not scanned</span></div>
+      </div>
+      <div class="root-recommendation" id="rootRec">Run scan to get irrigation recommendation</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 6: DIGITAL TWIN -->
+<section class="module-section mod-6" id="twin">
+  <div class="section-tag">MODULE 06</div>
+  <div class="module-header">
+    <h2>🌤️ Farm Digital Twin</h2>
+    <p class="module-desc">Hour-by-hour simulation of your entire farm's moisture lifecycle. Industrial tech, now for farmers.</p>
+  </div>
+  <div class="module-body two-col">
+    <div>
+      <div class="twin-canvas-wrapper">
+        <canvas id="twinCanvas" width="500" height="280"></canvas>
+      </div>
+      <div class="twin-timeline">
+        <input type="range" min="0" max="23" value="12" id="timeSlider" oninput="updateTwinTime(this.value)" />
+        <div class="time-labels"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span></div>
+      </div>
+    </div>
+    <div class="twin-stats">
+      <div class="twin-stat"><div class="ts-label">MOISTURE</div><div class="ts-val" id="twMoisture">—</div></div>
+      <div class="twin-stat"><div class="ts-label">EVAPORATION</div><div class="ts-val" id="twEvap">—</div></div>
+      <div class="twin-stat"><div class="ts-label">NEXT WATER</div><div class="ts-val" id="twNext">—</div></div>
+      <div class="twin-stat"><div class="ts-label">WATER NEEDED</div><div class="ts-val" id="twWater">—</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 7: TRACTOR IQ -->
+<section class="module-section mod-7" id="tractor">
+  <div class="section-tag">MODULE 07</div>
+  <div class="module-header">
+    <h2>🚜 Tractor IQ</h2>
+    <p class="module-desc">Your tractor becomes a soil mapping device using GPS + accelerometer — no extra hardware needed.</p>
+  </div>
+  <div class="module-body two-col">
+    <div class="tractor-map">
+      <canvas id="tractorCanvas" width="350" height="300"></canvas>
+      <button class="btn-analyze" onclick="simulateTractorPath()">🚜 SIMULATE TRACTOR RUN</button>
+    </div>
+    <div class="tractor-heatmap-wrapper">
+      <h4>SOIL MOISTURE HEATMAP</h4>
+      <canvas id="heatmapCanvas" width="350" height="300"></canvas>
+      <div class="tractor-rec" id="tractorRec">Run tractor simulation to generate soil map</div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULE 8: TRANSPIRATION -->
+<section class="module-section mod-8" id="transpiration">
+  <div class="section-tag">MODULE 08</div>
+  <div class="module-header">
+    <h2>🌱 Plant Sweat Detector</h2>
+    <p class="module-desc">Penman-Monteith equation measures plant transpiration rate — the most biologically accurate irrigation trigger.</p>
+  </div>
+  <div class="module-body two-col">
+    <div class="transpiration-gauge">
+      <canvas id="gaugeCanvas" width="280" height="180"></canvas>
+      <div class="input-group">
+        <label>LEAF TEMPERATURE: <span id="leafTempVal">32°C</span></label>
+        <input type="range" id="leafTemp" min="20" max="50" value="32" oninput="updateTranspiration()" />
+      </div>
+      <div class="input-group">
+        <label>AIR TEMPERATURE: <span id="airTempVal">30°C</span></label>
+        <input type="range" id="airTemp" min="15" max="45" value="30" oninput="updateTranspiration()" />
+      </div>
+      <div class="input-group">
+        <label>HUMIDITY: <span id="ambHumidityVal">55%</span></label>
+        <input type="range" id="ambHumidity" min="10" max="100" value="55" oninput="updateTranspiration()" />
+      </div>
+    </div>
+    <div class="transpiration-data">
+      <div class="trans-reading"><span class="tr-label">TRANSPIRATION RATE</span><span class="tr-val" id="transRate">—</span></div>
+      <div class="trans-reading"><span class="tr-label">VAPOR PRESSURE DEFICIT</span><span class="tr-val" id="vpdVal">—</span></div>
+      <div class="trans-reading"><span class="tr-label">WATER LOSS</span><span class="tr-val" id="waterLoss">—</span></div>
+      <div class="trans-reading"><span class="tr-label">STOMATAL STATUS</span><span class="tr-val" id="stomatStatus">—</span></div>
+      <div class="trans-verdict" id="transVerdict">Adjust sliders to measure transpiration</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-logo">💧 JALRAKSHAK</div>
+  <p>Built with ❤️ for Indian Agriculture · IMS Engineering College · WebNova 2025</p>
+  <div class="tech-stack">
+    <span>HTML5</span><span>CSS3</span><span>Vanilla JS</span>
+    <span>Canvas API</span><span>Web Speech API</span>
+    <span>Claude AI</span><span>Flask Backend</span>
+    <span>OpenCV</span>
+  </div>
+</footer>
+
+<!-- JS Modules -->
+<script src="js/main.js"></script>
+<script src="js/plant-vision.js"></script>
+<script src="js/satellite.js"></script>
+<script src="js/rainmap.js"></script>
+<script src="js/voice.js"></script>
+<script src="js/digital-twin.js"></script>
+<script src="js/tractor.js"></script>
+<script src="js/transpiration.js"></script>
+
+</body>
+</html>
