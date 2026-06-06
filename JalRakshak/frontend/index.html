@@ -9,6 +9,51 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css" />
 </head>
+  <!-- AI Assistant -->
+<div class="ai-assistant">
+
+    <button id="chatBtn">
+        🤖
+    </button>
+
+    <div class="chat-box" id="chatBox">
+
+        <div class="chat-header">
+            JalRakshak AI Assistant
+        </div>
+
+        <div class="chat-body">
+
+            <div class="bot-message">
+                👋 Hello Farmer!
+                <br><br>
+                How can I help?
+            </div>
+
+            <div class="suggestions">
+                <button onclick="reply('Water Status')">
+                    💧 Water Status
+                </button>
+
+                <button onclick="reply('Weather Forecast')">
+                    🌦 Weather Forecast
+                </button>
+
+                <button onclick="reply('Disease Detection')">
+                    🌿 Disease Detection
+                </button>
+
+                <button onclick="reply('Start Irrigation')">
+                    🚿 Start Irrigation
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 <body>
 
 <!-- Grain Overlay -->F
