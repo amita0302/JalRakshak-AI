@@ -71,3 +71,45 @@ if (themeToggle) {
                 : "🌙";
     });
 }
+const chatBtn = document.getElementById("chatBtn");
+const chatBox = document.getElementById("chatBox");
+
+chatBtn.onclick = () => {
+
+    if(chatBox.style.display==="block"){
+        chatBox.style.display="none";
+    }
+    else{
+        chatBox.style.display="block";
+    }
+
+};
+
+
+function reply(command){
+
+    let response="";
+
+    switch(command){
+
+        case "Water Status":
+            response="💧 Soil moisture is 72%. Irrigation not required.";
+            break;
+
+        case "Weather Forecast":
+            response="🌦 No rainfall expected in next 24 hours.";
+            break;
+
+        case "Disease Detection":
+            response="🌿 No disease symptoms detected.";
+            break;
+
+        case "Start Irrigation":
+            response="🚿 Irrigation system activated.";
+            break;
+
+    }
+
+    document.querySelector(".bot-message").innerHTML=response;
+
+}
