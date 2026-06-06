@@ -202,5 +202,5 @@ MIT License — Free for farmers and researchers. See [LICENSE](LICENSE) for det
 <div align="center">
   Built with ❤️ for Indian Agriculture
   <br/>
-  <strong>💧 JalRakshak AI — जलरक्षक</strong>
+  <strong>💧 JalRakshak  — जलरक्षक</strong>
 </div>
