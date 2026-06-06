@@ -769,4 +769,16 @@ canvas { max-width: 100%; height: auto; }
   0% { background-position: -200px 0; }
   100% { background-position: 200px 0; }
 }
+#themeToggle{
+  background:none;
+  border:1px solid #00ff66;
+  color:#00ff66;
+  padding:5px 10px;
+  border-radius:20px;
+  cursor:pointer;
+}
 
+.light-mode{
+  background:#ffffff;
+  color:#000000;
+}
