@@ -782,3 +782,77 @@ canvas { max-width: 100%; height: auto; }
   background:#ffffff;
   color:#000000;
 }
+/* Floating Button */
+
+#chatBtn{
+position:fixed;
+bottom:30px;
+right:30px;
+width:70px;
+height:70px;
+border:none;
+border-radius:50%;
+font-size:30px;
+cursor:pointer;
+background:#00c896;
+color:white;
+box-shadow:0 0 30px rgba(0,200,150,.6);
+z-index:1000;
+transition:.3s;
+}
+
+#chatBtn:hover{
+transform:scale(1.1);
+}
+
+
+/* Chat Box */
+
+.chat-box{
+position:fixed;
+bottom:120px;
+right:30px;
+width:340px;
+background:rgba(255,255,255,.1);
+backdrop-filter:blur(20px);
+border-radius:20px;
+overflow:hidden;
+display:none;
+box-shadow:0 10px 40px rgba(0,0,0,.3);
+z-index:1000;
+}
+
+.chat-header{
+padding:20px;
+background:#00c896;
+color:white;
+font-weight:bold;
+font-size:18px;
+}
+
+.chat-body{
+padding:20px;
+}
+
+.bot-message{
+background:#f2f2f2;
+padding:15px;
+border-radius:15px;
+margin-bottom:20px;
+}
+
+.suggestions button{
+width:100%;
+margin-bottom:10px;
+padding:12px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-size:15px;
+transition:.3s;
+}
+
+.suggestions button:hover{
+background:#00c896;
+color:white;
+}
