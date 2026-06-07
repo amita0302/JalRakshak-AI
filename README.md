@@ -219,7 +219,6 @@ headers: {
 Live at: [https://jalrakshak-ai.onrender.com](https://jalrakshak-ai.onrender.com)
 
 
-```
 
 ## 🤝 Contributions
 
