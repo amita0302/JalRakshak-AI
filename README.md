@@ -221,20 +221,14 @@ Live at: [https://jalrakshak-ai.onrender.com](https://jalrakshak-ai.onrender.com
 
 ```
 
----
+## 🤝 Contributions
 
-## 👩‍💻 Team
-
-> Built with ❤️ at **WebNova 2026** — IMS Engineering College, Ghaziabad (HackerRank / Unstop)
-
-| Name | Role |
-|------|------|
-| **Amita Singh** | Team Lead — AI Modules, Backend, Deployment |
-| **Harshita Gupta** | Frontend Development |
-| **Jyoti Pandey** | UI/UX & Voice Module |
-| **Akshita Srivastav** | Satellite & Data Integration |
-
----
+| Team Member | Area | Contributions |
+|-------------|------|--------------|
+| [**Amita Singh**](https://github.com/amita0302) | AI & Backend | Claude API integration, Plant Emotion AI, Flask backend, Render deployment, project architecture |
+| [**Harshita Gupta**](https://github.com/Harshitagupta2005) | Frontend | UI design, dashboard layout, CSS animations, responsive design |
+| [**Jyoti Pandey**](https://github.com/jyoti0174) | Voice & UX | Voice control module (Hindi/Marathi/Hinglish), Web Speech API, UI/UX flow |
+| [**Akshita Srivastav**](https://github.com/Akshitasri8299) | Data & Satellite | NDVI/NDWI satellite module, Rainwater Flow Mapper, data integration |
 
 ## 📄 License
 
