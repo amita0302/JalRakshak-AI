@@ -242,10 +242,7 @@ MIT License — Free for farmers and researchers. See [LICENSE](LICENSE) for det
 
 ---
 
-<div align="center">
-
+---
 💧 **JalRakshak-AI — जलरक्षक**
 
 *Turning every Indian farm into a smart farm. No hardware. Just intelligence.*
-
-</div>
