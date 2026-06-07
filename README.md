@@ -218,16 +218,7 @@ headers: {
 ### Cloud (Current — Render)
 Live at: [https://jalrakshak-ai.onrender.com](https://jalrakshak-ai.onrender.com)
 
-### Raspberry Pi (Farm Deployment)
-```bash
-sudo apt install python3-flask python3-numpy python3-cv2
-python app.py --host 0.0.0.0 --port 80
-```
 
-### Docker
-```bash
-docker build -t jalrakshak .
-docker run -p 5000:5000 jalrakshak
 ```
 
 ---
